@@ -1,0 +1,2 @@
+parseResponse(
+{"rating": 0, "maxRankName": "", "handle": "", "name": 0, "contestRank": 0, "submitContestId": "", "index": "", "contestName": "", "problemName": "", "when": "", "rank": 0, "verdict": "", "contestId": "", "fluctuation": "", "submitCodeId": "", "maxRating": 0, "rankName": ""});

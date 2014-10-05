@@ -1,0 +1,133 @@
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+/* modified by clarinet758 | 20141005*/
+body, div, h1, h2, h3, h4, p, pre, a, s, em, img, strong, var, form, caption {
+    background: transparent;
+    border: 0;
+    font-size: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+:focus {
+    outline: 0;
+}
+.clear:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+body {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font: normal 12px arial, sans-serif;
+    margin: 0 auto;
+    width: 255px;
+}
+#user-login {
+    background-color: #fff;
+    padding: 4px 7px 1px 7px;
+}
+#user-avatar {
+    float: left;
+}
+#user-avatar .avatar {
+    border: 1px solid #ddd;
+    padding: 1px;
+    width: 30px;
+    height: 30px;
+}
+#user-overview {
+    margin-left: 40px;
+    font-size: 14px;
+}
+#user-overview p {
+    color: #808080;
+    font: normal normal 10px arial, sans-serif;
+}
+#user-overview .now {
+    font-style: normal;
+    font-weight: 800;
+}
+#user-overview .max {
+    font-style: normal;
+    font-weight: 600;
+}
+#RankName {
+    font-size: 12px;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#rating {
+    font-size: 9px;
+}
+.red {
+    color: red;
+}
+.orange {
+    color: #ff9c00;
+}
+.violet {
+    color: #a0a;
+}
+.blue {
+    color: blue;
+}
+.green {
+    color: green;
+}
+.gray {
+    color: gray;
+}
+#top hr {
+    border: 0;
+    margin: 2px 1px 2px 1px;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+#user-content {
+    border-top: 1px solid #eee;
+    background: url(http://www.nowshika.com/joso/img06222124.png) left bottom no-repeat;
+    margin-left: 4px;
+}
+#contest {
+    margin-left: 40px;
+}
+#contest h2 {
+    color: #222222;
+    font-size: 13px;
+    font-weight: 200;
+    font-style: normal;
+}
+#contest p {
+    margin-left: 10px;
+    color: #222222;
+    font-size: 11px;
+    font-style: normal;
+}
+#under hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+#user-info {
+    margin: 1px 1px 5px 40px;
+}
+#user-info h2 {
+    color: #222222;
+    font-size: 13px;
+    font-weight: 200;
+    font-style: normal;
+}
+#user-info p {
+    margin-left: 10px;
+    font-size: 11px;
+}
