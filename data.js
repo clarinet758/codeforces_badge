@@ -28,7 +28,7 @@ function data(){
             else if (nowRating < 1200) i=5;
 
             $("<a href='"+prof+uid+"' class='"+color[i]+"' target='_parent'>").text(uid).prependTo("#handleLink");
-            $("<span class='"+color[i]+"'>").text(data.rankName).prependTo("#rankName");
+            $("<span class='"+color[i]+"'>").text(info.rankName).prependTo("#rankName");
             $("<span class='"+color[i]+"'>").text(nowRating).prependTo("#rating");
             $("<span class='"+color[i]+"'>").text(nowRating).prependTo("#newRating");
 
