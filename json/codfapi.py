@@ -5,51 +5,53 @@ import sys
 import io
 import re
 import datetime
-import urllib2
 import json
 
 n=''
-endpoint1='http://codeforces.com/api/user.info?handles='+n
-endpoint2='http://codeforces.com/api/user.rating?handle='+n
-endpoint3='http://codeforces.com/api/user.status?handle='+n+'&from=1&count=1'
 filename="./data.json"
-d=urllib2.urlopen(endpoint1)
-data1=json.load(d)
-d.close()
-d=urllib2.urlopen(endpoint2)
-data2=json.load(d)
-d.close()
-d=urllib2.urlopen(endpoint3)
-data3=json.load(d)
-d.close()
-f=open(filename)
-master=json.load(f)
-f.close()
+
+info='./info.json'
+rating='./rating.json'
+status='./status.json'
+savedata="./data.json"
+
+def jsonload(filename):
+    f=open(filename)
+    data=json.load(f)
+    f.close()
+    return data
+
+data1=jsonload(info)
+data2=jsonload(rating)
+data3=jsonload(status)
+master=jsonload(savedata)  
+
+
 # can not get 'OK',do not update.  because do not know any time to recover.
-if data1[u'status']!='OK': exit()
-if data2[u'status']!='OK': exit()
-if data3[u'status']!='OK': exit()
+if data1['status']!='OK': exit()
+if data2['status']!='OK': exit()
+if data3['status']!='OK': exit()
 
-info=data1[u'result'][0]
-cont=data2[u'result'][-1]
-subm=data3[u'result'][0]
+info=data1['result'][0]
+cont=data2['result'][-1]
+subm=data3['result'][0]
 
-master[u'handle']=n
-master[u'rankName']=info['rank']
-master[u'maxRankName']=info['maxRank']
-master[u'rating']=info['rating']
-master[u'maxRating']=info['maxRating']
-master[u'contestId']=str(cont['contestId'])
-master[u'contestName']=cont['contestName']
-master[u'contestRank']=cont['rank']
+master['handle']=n
+master['rankName']=info['rank']
+master['maxRankName']=info['maxRank']
+master['rating']=info['rating']
+master['maxRating']=info['maxRating']
+master['contestId']=str(cont['contestId'])
+master['contestName']=cont['contestName']
+master['contestRank']=cont['rank']
 flu=cont['newRating']-cont['oldRating']
 if flu>0:
     flu='+'+str(flu)
 elif flu>=0:
     flu=str(flu)
-master[u'fluctuation']=flu
-master[u'fluctuation']=flu
-dt=datetime.datetime.fromtimestamp(subm[u'creationTimeSeconds'])
+master['fluctuation']=flu
+master['fluctuation']=flu
+dt=datetime.datetime.fromtimestamp(subm['creationTimeSeconds'])
 if dt.month>9:
     mo=str(dt.month)
 else:
@@ -71,13 +73,13 @@ if dt.second>9:
 else:
     sc=('0'+str(dt.second))
 ts=str(dt.year)+'-'+mo+'-'+dy+' '+ho+':'+mn+':'+sc
-master[u'when']=ts
-if subm[u'verdict']==u'OK':
-    subm[u'verdict']=u'Accepted'
-master[u'verdict']=subm[u'verdict']
-master[u'submitContestId']=str(subm[u'problem'][u'contestId'])
-master[u'submitCodeId']=str(subm[u'id'])
-master[u'index']=(subm[u'problem'][u'index'])
-master[u'problemName']=(subm[u'problem'][u'name'])
+master['when']=ts
+if subm['verdict']=='OK':
+    subm['verdict']='Accepted'
+master['verdict']=subm['verdict']
+master['submitContestId']=str(subm['problem']['contestId'])
+master['submitCodeId']=str(subm['id'])
+master['index']=(subm['problem']['index'])
+master['problemName']=(subm['problem']['name'])
 
-json.dump(master, open(filename, 'w'))
+json.dump(master, open(savedata, 'w'))
