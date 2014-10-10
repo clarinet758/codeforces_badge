@@ -46,7 +46,8 @@ function data(){
             $("<a href='"+cont+contestId+"' target='_parent'>").text(info.contestName).prependTo("#contestLink");
             $("<span>").text(info.rank).prependTo("#rank");
             $("<a href='http://codeforces.com/problemset/problem/"+submitContestId+"/"+index+"' target='_parent'>").text(problem).prependTo("#problem");
-            $("<span>").text(info.verdict).prependTo("#verdict");
+            if (info.verdict==="Accepted") $("<span class='AC'>").text(info.verdict).prependTo("#verdict");
+            else $("<span>").text(info.verdict).prependTo("#verdict");
             $("<a href='"+cont+submitContestId+"/submission/"+submitCodeId+"' target='_parent'>").text(info.submitCodeId).prependTo("#submitCodeId");
         }
     });
