@@ -12,6 +12,7 @@ function data(){
             var uid = info.handle;
             var contestId    = info.contestId;
             var contestName  = info.contestName;
+            var submitCodeId = info.submitCodeId;
             var submitContestId = info.submitContestId;
             var index    = info.index;
             var problem  = submitContestId+index+" - "+info.problemName;
