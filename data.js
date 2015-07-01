@@ -6,7 +6,6 @@ function data(){
         jsonpCallback: 'parseResponse',
         crossDomain: true,
         success: function(info){
-            var i,j;
             var color = ['red','orange','violet','blue','green','gray','black'];
             var nowRating = info.rating, maxRating = info.maxRating;
             var uid = info.handle;
@@ -20,26 +19,25 @@ function data(){
             var cont = "http://codeforces.com/contest/";
             $("<span>").text("(((o(*ﾟ▽ﾟ*)o)))").prependTo("#solve");
             $("<img alt='photo' class='avatar' src='http://codeforces.com/userphoto/title/"+uid+"/photo.jpg'>").prependTo("#user-avatar");
+            function flag(x){
+                var y;
+                if (x >= 2200) y=0;
+                else if (x >= 1900) y=1;
+                else if (x >= 1700) y=2;
+                else if (x >= 1500) y=3;
+                else if (x >= 1200) y=4;
+                else if (x < 1200) y=5;
 
-            if (nowRating >= 2200) i=0;
-            else if (nowRating >= 1900) i=1;
-            else if (nowRating >= 1700) i=2;
-            else if (nowRating >= 1500) i=3;
-            else if (nowRating >= 1200) i=4;
-            else if (nowRating < 1200) i=5;
+                return y;
+            }
 
+            var i = flag(nowRating);
             $("<a href='"+prof+uid+"' class='"+color[i]+"' target='_parent'>").text(uid).prependTo("#handleLink");
             $("<span class='"+color[i]+"'>").text(info.rankName).prependTo("#rankName");
             $("<span class='"+color[i]+"'>").text(nowRating).prependTo("#rating");
             $("<span class='"+color[i]+"'>").text(nowRating).prependTo("#newRating");
 
-            if (maxRating >= 2200) j=0;
-            else if (maxRating >= 1900) j=1;
-            else if (maxRating >= 1700) j=2;
-            else if (maxRating >= 1500) j=3;
-            else if (maxRating >= 1200) j=4;
-            else if (maxRating < 1200) j=5;
-
+            var j = flag(maxRating);
             $("<span class='"+color[j]+"'>").text(info.maxRankName).prependTo("#maxRankName");
             $("<span class='"+color[j]+"'>").text(maxRating).prependTo("#maxRating");
             $("<span>").text(info.fluctuation).prependTo("#fluctuation");
