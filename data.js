@@ -6,7 +6,7 @@ function data(){
         jsonpCallback: 'parseResponse',
         crossDomain: true,
         success: function(info){
-            var color = ['red','orange','violet','blue','green','gray','black'];
+            var color = ['red','red','orange','violet','blue','cyan','green','gray','black'];
             var nowRating = info.rating, maxRating = info.maxRating;
             var uid = info.handle;
             var contestId    = info.contestId;
@@ -21,18 +21,23 @@ function data(){
             $("<img alt='photo' class='avatar' src='http://codeforces.com/userphoto/title/"+uid+"/photo.jpg'>").prependTo("#user-avatar");
             function flag(x){
                 var y;
-                if (x >= 2200) y=0;
-                else if (x >= 1900) y=1;
-                else if (x >= 1700) y=2;
-                else if (x >= 1500) y=3;
-                else if (x >= 1200) y=4;
-                else if (x < 1200) y=5;
+                if (x >= 2900) y=0;
+                else if (x >= 2400) y=1;
+                else if (x >= 2200) y=2;
+                else if (x >= 1900) y=3;
+                else if (x >= 1600) y=4;
+                else if (x >= 1400) y=5;
+                else if (x >= 1200) y=6;
+                else if (x < 1200) y=7;
 
                 return y;
             }
 
             var i = flag(nowRating);
-            $("<a href='"+prof+uid+"' class='"+color[i]+"' target='_parent'>").text(uid).prependTo("#handleLink");
+            var f = i;
+            if (i==0) f=8;
+            $("<a href='"+prof+uid+"' class='"+color[f]+"' target='_parent'>").text(uid.substring(0,1)).prependTo("#handleLink-first");
+            $("<a href='"+prof+uid+"' class='"+color[i]+"' target='_parent'>").text(uid.substring(1)).prependTo("#handleLink");
             $("<span class='"+color[i]+"'>").text(info.rankName).prependTo("#rankName");
             $("<span class='"+color[i]+"'>").text(nowRating).prependTo("#rating");
             $("<span class='"+color[i]+"'>").text(nowRating).prependTo("#newRating");

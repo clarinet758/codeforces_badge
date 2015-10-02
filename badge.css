@@ -64,17 +64,27 @@ body {
 #rating {
   font-size: 9px;
 }
+
+.black {
+  color: black;
+}
 .red {
   color: red;
 }
+.yellow {
+    color: #bb0;
+}
 .orange {
-  color: #ff9c00;
+  color: #ff8c00;
 }
 .violet {
   color: #a0a;
 }
 .blue {
   color: blue;
+}
+.cyan {
+    color: #03a89e;
 }
 .green {
   color: green;
