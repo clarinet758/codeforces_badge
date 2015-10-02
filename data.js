@@ -35,7 +35,7 @@ function data(){
 
             var i = flag(nowRating);
             var f = i;
-            if (i==0) f=8;
+            if (i===0) f=8;
             $("<a href='"+prof+uid+"' class='"+color[f]+"' target='_parent'>").text(uid.substring(0,1)).prependTo("#handleLink-first");
             $("<a href='"+prof+uid+"' class='"+color[i]+"' target='_parent'>").text(uid.substring(1)).prependTo("#handleLink");
             $("<span class='"+color[i]+"'>").text(info.rankName).prependTo("#rankName");
